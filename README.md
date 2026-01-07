@@ -69,10 +69,10 @@ Install dependencies:
 `pnpm install`
 
 Start the development server:
-`pnpm run dev`
+`pnpm dev`
 
 Build for production:
-`pnpm run build`
+`pnpm build`
 
 ## Documents
 
@@ -81,3 +81,13 @@ Build for production:
 - [Qwik GitHub](https://github.com/QwikDev/qwik)
 - [@QwikDev](https://twitter.com/QwikDev)
 - [Vite](https://vitejs.dev/)
+
+## Static Site Generator (Node.js)
+
+Be sure to configure your server to serve very long cache headers for the `build/**/*.js` files.
+
+Typically you'd set the `Cache-Control` header for those files to `public, max-age=31536000, immutable`.
+
+```shell
+pnpm build.server
+```
