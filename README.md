@@ -36,10 +36,9 @@ On mobile, we switch to a Fixed Overlay that covers the screen.
 
 ## 🧠 Core Concepts for Juniors
 
-### The $ Sign (e.g., component$, onClick$ etc. )
+### The **$** Sign (e.g., **component$**, **onClick$** etc. )
 
-In Qwik, the $ is a signal to the "Optimizer." it tells Qwik: "Slice this code into a separate tiny file." This is why Qwik sites load so fast—the browser doesn't download the "Open Menu" logic until the user actually clicks the button.
-Signals (useSignal)
+In Qwik, the **$** is a signal to the "Optimizer." it tells Qwik: "Slice this code into a separate tiny file." This is why Qwik sites load so fast—the browser doesn't download the "Open Menu" logic until the user actually clicks the button.
 
 ### Think of a Signal as a box that holds a value.
 
@@ -57,24 +56,35 @@ We use max-height for the smooth slide-down effect:
 
 ## 🎨 How to Customize
 
-To change...,Find this class...
-Transparency,"bg-slate-900/90 (Change 90 to 50, 75, etc.)"
-Menu Blur,backdrop-blur-md (Change to blur-sm or blur-xl)
-Desktop Color,bg-slate-900
-Animation Speed,duration-300 (300ms)
+To change... -> Find this class...
+Transparency -> "bg-slate-900/90 (Change 90 to 50, 75, etc.)"
+Menu Blur -> backdrop-blur-md (Change to blur-sm or blur-xl)
+Desktop Color -> bg-slate-900
+Animation Speed -> duration-300 (300ms)
 
 ## 🏃‍♂️ Getting Started
 
 Install dependencies:
-`pnpm install`
+
+```shell
+pnpm install
+```
 
 Start the development server:
-`pnpm dev`
+
+```shell
+pnpm dev
+```
 
 Build for production:
-`pnpm build`
 
-## Documents
+```shell
+pnpm build
+```
+
+---
+
+## 📚 Documents
 
 - [Qwik Docs](https://qwik.dev/)
 - [Discord](https://qwik.dev/chat)
@@ -82,7 +92,7 @@ Build for production:
 - [@QwikDev](https://twitter.com/QwikDev)
 - [Vite](https://vitejs.dev/)
 
-## Static Site Generator (Node.js)
+### Static Site Generator (Node.js)
 
 Be sure to configure your server to serve very long cache headers for the `build/**/*.js` files.
 

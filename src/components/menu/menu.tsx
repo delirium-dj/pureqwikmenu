@@ -34,7 +34,7 @@ export const PureMenu = component$(() => {
                 </a>
                 {/* Desktop Dropdown: Handled by 'group-hover' classes, not JS */}
                 {item.children && (
-                  <div class="absolute left-0 mt-0 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     {item.children.map((child) => (
                       <a key={child} href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">
                         {child}
