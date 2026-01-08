@@ -1,9 +1,21 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 
 export const PureMenu = component$(() => {
   // signals act like "reactive boxes" to store the menu's state
   const isMobileMenuOpen = useSignal(false);
   const expandedItem = useSignal<string | null>(null);
+
+  // Add this task to watch the isMobileMenuOpen signal
+  useVisibleTask$(({ track }) => {
+    // track() tells Qwik to re-run this function whenever isMobileMenuOpen changes
+    const isOpen = track(() => isMobileMenuOpen.value);
+    
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  });
 
   const menuItems = [
     { label: 'Home', href: '/' },
@@ -18,11 +30,11 @@ export const PureMenu = component$(() => {
 
   return (
     <nav class="bg-slate-900 text-white w-full relative z-30">
-      <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8">
         <div class="flex justify-between h-16 items-center">
           {/* 1. LOGO SECTION */}
           <div class="flex-shrink-0 font-bold text-xl z-50">
-            PureCSS <span class="text-blue-400">Qwik</span>
+            QwikJS <span class="text-blue-400">Tailwind</span>
           </div>
 
           {/* 2. DESKTOP MENU (Pure CSS Logic) */}
@@ -49,9 +61,9 @@ export const PureMenu = component$(() => {
           {/* 3. MOBILE TOGGLE BUTTON */}
           <div class="md:hidden flex items-center z-50">
             <button
-              onClick$={() => (isMobileMenuOpen.value = !isMobileMenuOpen.value)}
-              class="inline-flex items-center justify-center p-2 rounded-md hover:bg-slate-700 focus:outline-none"
-            >
+            onClick$={() => (isMobileMenuOpen.value = !isMobileMenuOpen.value)}
+            class="inline-flex items-center justify-center p-2 rounded-md hover:bg-slate-700 focus:outline-none transition-all"
+          >
               <div class="space-y-2">
                 <span class={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen.value ? 'rotate-45 translate-y-2.5' : ''}`}></span>
                 <span class={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen.value ? 'opacity-0' : ''}`}></span>

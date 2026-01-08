@@ -13,3 +13,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  /* This forces the scrollbar track to ALWAYS exist, even if the page is short */
+  overflow-y: scroll;
+}
